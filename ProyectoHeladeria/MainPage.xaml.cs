@@ -13,13 +13,17 @@ namespace ProyectoHeladeria
 {
     public partial class MainPage : MasterDetailPage
     {
-        public MainPage(string usuario)
+        Usuario inicioSesion;
+        public MainPage(Usuario post)
         {
             
             InitializeComponent();
-            this.Master = new Master(usuario);
+            inicioSesion = post;
+            this.Master = new Master(post.usuario, post.Perfil_idPerfil);
             this.Detail = new NavigationPage(new Principal());
             App.MasterDetail = this;
         }
+
+
     }
 }

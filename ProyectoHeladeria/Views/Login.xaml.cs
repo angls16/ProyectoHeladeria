@@ -19,7 +19,7 @@ namespace ProyectoHeladeria.Views
     {
         //private const string Url = " "
        
-        private const string Url = "http://10.20.20.251/heladeria/postUsuarioLogin.php?usuario={0}&idUsuario={1}";
+        private const string Url = "http://10.20.20.251/heladeria/postUsuarioLogin.php?usuario={0}&contrasena={1}";
 
         private readonly HttpClient client = new HttpClient();
         public ObservableCollection<Usuario> _inicioSesion;
@@ -46,7 +46,7 @@ namespace ProyectoHeladeria.Views
                         {
                             Usuario post = JsonConvert.DeserializeObject<Usuario>(content);
                             //await Navigation.PushAsync(new MainPage(entUsuario.Text));
-                            await Navigation.PushAsync(new MainPage(tUsuario));
+                            await Navigation.PushAsync(new MainPage(post));
                         }
                         else
                         {

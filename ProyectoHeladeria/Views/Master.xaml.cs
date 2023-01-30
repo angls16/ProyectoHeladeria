@@ -14,10 +14,36 @@ namespace ProyectoHeladeria.Views
     public partial class Master : ContentPage
     {
 
-        public Master(string usuario)
+        public Master(string usuario, int Perfil_idPerfil)
         {
             InitializeComponent();
              lblUsuario.Text = usuario;
+            if (Perfil_idPerfil == 1)
+            {
+                listadoPerfiles.IsVisible = true;
+                listadoUsuarios.IsVisible = true;
+                listadoClientes.IsVisible = true;
+                listadoProductos.IsVisible = true;
+                listadoVentas.IsVisible = true;
+                listadoDetalles.IsVisible = true;
+            }
+            else if (Perfil_idPerfil == 2) {
+                listadoPerfiles.IsVisible = false;
+                listadoUsuarios.IsVisible = false;
+                listadoClientes.IsVisible = false;
+                listadoProductos.IsVisible = true;
+                listadoVentas.IsVisible = true;
+                listadoDetalles.IsVisible = true;
+            }
+            else if (Perfil_idPerfil == 3)
+            {
+                listadoPerfiles.IsVisible = false;
+                listadoUsuarios.IsVisible = false;
+                listadoClientes.IsVisible = false;
+                listadoProductos.IsVisible = true;
+                listadoVentas.IsVisible = false;
+                listadoDetalles.IsVisible = true;
+            }
         }
 
         private async void listadoPerfiles_Clicked(object sender, EventArgs e)

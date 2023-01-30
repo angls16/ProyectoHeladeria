@@ -43,7 +43,7 @@ namespace ProyectoHeladeria.Views
                 parameters.Add("direccion", entDireccion.Text);
                 parameters.Add("estado", "1");
                 parameters.Add("imagen", null);
-                parameters.Add("Perfil_idPerfil", "1");
+                parameters.Add("Perfil_idPerfil", "3");
                 client.UploadValues(Url, "POST", parameters);
 
                 await Navigation.PushAsync(new Login());
