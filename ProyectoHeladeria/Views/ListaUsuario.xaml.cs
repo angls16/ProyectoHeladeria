@@ -16,13 +16,28 @@ namespace ProyectoHeladeria.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListaUsuario : ContentPage
 	{
-        private const string Url = "http://10.20.20.251/heladeria/postUsuario.php";
+        private const string Url = "http://192.168.70.5/heladeria/postUsuario.php";
 
         private readonly HttpClient client = new HttpClient();
         public ObservableCollection<Usuario> _post;
-        public int idUsuario = -1;
-        public string nombres,cedula,apellidos,telefono,direccion,correo,usuario;
-        public int estado;
+        public int idUsuario = -1,estado,Perfil_idPerfil;
+        public string nombres,cedula,apellidos,telefono,direccion,correo,usuario,contrasena,imagen;
+
+
+        private async void btnEditar_Clicked(object sender, EventArgs e)
+        {
+            if (idUsuario > 0)
+            {
+                await Navigation.PushAsync(new EditarUsuario(idUsuario,cedula,nombres,apellidos,telefono,direccion,correo,usuario,contrasena,estado,imagen,Perfil_idPerfil));
+            }
+            else
+            {
+                await DisplayAlert("Alerta", "No se ha seleccionado un registro ", "OK");
+            }
+
+        }
+
+        
         public ListaUsuario()
         {
             InitializeComponent();
@@ -41,7 +56,10 @@ namespace ProyectoHeladeria.Views
             usuario = obj.usuario;
             correo = obj.correo;
             estado = obj.estado;
+            imagen= obj.imagen;
+            contrasena = obj.contrasena;    
 
+            Perfil_idPerfil = obj.Perfil_idPerfil;
             
         }
 

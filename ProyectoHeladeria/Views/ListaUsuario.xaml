@@ -86,7 +86,7 @@
             <Button Text="Insertar" x:Name="btnInsertar"  />
             <Button Text="Eliminar" x:Name="btnEliminar"   />
             <Button Text="Eliminar Datos" x:Name="btnEliminarID"  TextColor="White" BackgroundColor="Red"/>
-            <Button Text="Editar" x:Name="btnEditar"  />
+            <Button Text="Editar" x:Name="btnEditar" Clicked="btnEditar_Clicked"  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
